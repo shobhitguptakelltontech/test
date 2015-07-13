@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- <property name="connection.url">jdbc:mysql://localhost:3306/justpark_serverDB</property> -->
+		<property name="connection.url">jdbc:mysql://localhost:3306/justpark_serverIPL</property>
+		
+		<!-- Production Config -->
+        <property name="connection.username">justpark_admin</property>
+        <property name="connection.password">Airpman29</property>
+        <!-- Staging Config -->
+		<!-- <property name="connection.username">root</property>
+		<property name="connection.password">justpark</property>  -->
+		
+		
+		<property name="hibernate.default_schema">justpark_serverIPL</property>
+		<!-- <property name="hibernate.default_schema">justpark_serverDB</property> -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- JDBC connection pool (use the built-in) -->
+		<property name="connection.pool_size">1</property>
+		<property name="connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
+		<property name="c3p0.acquire_increment">1</property>
+		<property name="c3p0.idle_test_period">100</property> <!-- seconds -->
+		<property name="c3p0.max_size">100</property>
+		<property name="c3p0.max_statements">0</property>
+		<property name="c3p0.min_size">10</property>
+		<property name="c3p0.timeout">1800</property>
+		<!-- SQL dialect -->
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+
+		<!-- Enable Hibernate's automatic session context management -->
+		<property name="current_session_context_class">thread</property>
+
+		<!-- Disable the second-level cache -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout -->
+		<!-- <property name="show_sql">true</property> -->
+		<property name="format_sql">true</property>
+		<property name="use_sql_comments">true</property>
+		<property name="hbm2ddl.auto">update</property>
+
+
+		<mapping resource="com/justpark/hbm/JPCity.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPLocation.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPParkingDetail.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPParkingLocation.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPParkingSpace.hbm.xml" />
+		<mapping resource="com/justpark/userhbm/JPTransaction.hbm.xml" />
+		<mapping resource="com/justpark/userhbm/JPUser.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPBooking.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPMinuteSlot.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPFavorite.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPAddNewSpace.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPRequiredParkinnLocation.hbm.xml" />
+		<mapping resource="com/justpark/hbm/ParkingOwner.hbm.xml" />
+		<mapping resource="com/justpark/hbm/BookingLog.hbm.xml" />
+		<mapping resource="com/justpark/hbm/GCMRegistration.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPEvent.hbm.xml" />
+		<mapping resource="com/justpark/hbm/JPEventParkingLocation.hbm.xml"/>
+		<mapping resource="com/justpark/userhbm/JPUserAudit.hbm.xml" />
+		<mapping resource="com/justpark/hbm/ApplicationData.hbm.xml" />
+		<mapping resource="com/justpark/hbm/DealsUsers.hbm.xml" />
+		<mapping resource="com/justpark/hbm/MobileNumbers.hbm.xml" />
+		<mapping resource="com/justpark/hbm/PromoCode.hbm.xml" />
+		
+	</session-factory>
+
+</hibernate-configuration>
